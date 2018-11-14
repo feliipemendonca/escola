@@ -15,13 +15,14 @@ class CreateTbCursoTable extends Migration
     {
         Schema::create('tb_curso', function (Blueprint $table) {
             $table->increments('idtb_curso');
-            $table->string('nome', 45);
-            $table->text('sobre', 750);
-            $table->string('alvo', 500);
-            $table->text('carga', 10);
-            $table->string('mercado', 1000);
-            $table->flat('valor', 10,2);
+            $table->string('nome');
+            $table->text('sobre');
+            $table->string('alvo');
+            $table->text('carga');
+            $table->string('mercado');
+            $table->float('valor');
             $table->boolean('ativa');
+            $table->string('img')->unique();
             $table->timestamps();
         });
     }

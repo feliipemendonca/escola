@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Curso;
 
 class CursoController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,7 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        return view('curso');
     }
 
     /**
@@ -23,7 +29,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('curso.create');
     }
 
     /**
@@ -34,7 +40,27 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'      => 'required',
+            'sobre'     => 'required',
+            'alvo'      => 'required',
+            'carga'     => 'required',
+            'mercado'   =>'required',
+            'valor'     =>'required|integer',
+        ]);
+
+        $curso = new Curso([
+            'nome'      => $request->get('nome'),
+            'sobre'     => $request->get('sobre'),
+            'alvo'      => $request->get('alvo'),
+            'carga'     => $request->get('carga'),
+            'mercado'   => $request->get('mercado'),
+            'valor'     => $request->get('valor')
+        ]);
+
+        $curso->save();
+        return redirect('/curso')->with('Cadastro realizidado com Sucesso.');
+
     }
 
     /**

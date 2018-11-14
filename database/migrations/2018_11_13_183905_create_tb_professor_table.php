@@ -22,7 +22,7 @@ class CreateTbProfessorTable extends Migration
             $table->string('instituicao', 45);
             $table->date('ano');
             $table->string('bio', 500);
-            $table->string('img', 220)->unique();
+            $table->string('img')->unique();
             $table->integer('tb_endereco_idtb_endereco')->unsigned();
             $table->timestamps();
 

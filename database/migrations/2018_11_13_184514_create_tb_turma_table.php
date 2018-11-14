@@ -15,12 +15,12 @@ class CreateTbTurmaTable extends Migration
     {
         Schema::create('tb_turma', function (Blueprint $table) {
             $table->increments('idtb_turma');
-            $table->integer('vaga', 10);
-            $table->string('dia', 45);
-            $table->string('hora', 45);
-            $table->integer('tb_endereco_idtb_endereco');
-            $table->integer('tb_curso_idtb_curso');
-            $table->integer('tb_professor_idtb_professor');
+            $table->integer('vaga');
+            $table->string('dia');
+            $table->string('hora');
+            $table->integer('tb_endereco_idtb_endereco')->unsigned();
+            $table->integer('tb_curso_idtb_curso')->unsigned();
+            $table->integer('tb_professor_idtb_professor')->unsigned();
             $table->timestamps();
 
             $table->foreign('tb_endereco_idtb_endereco')->references('idtb_endereco')->on('tb_endereco');
