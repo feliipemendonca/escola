@@ -16,7 +16,7 @@
 
 <div class="col-sm-12 col-md-12">
 	<table class="table">
-		<thead class="thead-dark"> 
+		<thead class="table"> 
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>

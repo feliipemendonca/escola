@@ -12,7 +12,7 @@ body {
  * Sidebar
  */
 
-.sidebar {
+ .sidebar {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -66,7 +66,7 @@ body {
  * Content
  */
 
-[role="main"] {
+ [role="main"] {
   padding-top: 48px; /* Space for fixed navbar */
 }
 
@@ -74,7 +74,7 @@ body {
  * Navbar
  */
 
-.navbar-brand {
+ .navbar-brand {
   padding-top: .75rem;
   padding-bottom: .75rem;
   font-size: 1rem;
@@ -97,4 +97,15 @@ body {
 .form-control-dark:focus {
   border-color: transparent;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+}
+
+.options ul{
+  list-style: none;
+  display: -webkit-inline-box;
+  display: -moz-inline-box;
+  display: -o-inline-box;
+  display: -ms-inline-box;
+}
+.options ul li{
+  margin-right: 0.9em;
 }

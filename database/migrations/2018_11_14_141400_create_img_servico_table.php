@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbServicoTable extends Migration
+class CreateImgServicoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateTbServicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_servico', function (Blueprint $table) {
-            $table->increments('idtb_servico');
-            $table->string('nome', 45)->unique();
-            $table->string('sobre', 45);
-            $table->string('img')->unique();
+        Schema::create('img_servico', function (Blueprint $table) {
+            $table->increments('id');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateTbServicoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_servico');
+        Schema::dropIfExists('img_servico');
     }
 }

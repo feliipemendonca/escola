@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contato', 'ContatoController@index')->name('contato');
-Route::get('/curso', 'CursoController@index')->name('curso');
+Route::resource('/curso', 'CursoController');
+Route::resource('/servico', 'ServicoController');
+
+
+

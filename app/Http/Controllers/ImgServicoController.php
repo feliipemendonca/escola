@@ -3,28 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Servico;
 
-class ServicoController extends Controller
-{  
-
-    protected $servico;
-
-    public function __construct(Servico $servico)
-    {
-        $this->middleware('auth');
-        $this->post = $servico;
-    }
-
+class ImgServicoController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        $servicos = Servico::paginate(15);
-        return view('admin.servico', ['servicos' => $servicos]);
+    {
+        return view('admin.servico');
     }
 
     /**
@@ -34,7 +23,7 @@ class ServicoController extends Controller
      */
     public function create()
     {
-        return view('admin.servico.create');
+        //
     }
 
     /**
@@ -45,19 +34,7 @@ class ServicoController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'title' => 'required',
-            'body'  => 'required',
-        ]);
-
-        $servico = new Servico ([
-            'nome' => $request->get('title'),
-            'sobre'=> $request->get('body')
-        ]);
-
-        $servico->save();
-        return redirect('/servico')->with('Serviço cadastrado com Sucesso');
+        //
     }
 
     /**
@@ -79,7 +56,7 @@ class ServicoController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.servico.edit');
+        //
     }
 
     /**
@@ -91,18 +68,7 @@ class ServicoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title'  => 'required',
-            'body'  => 'required'
-        ]);
-
-        $servico = Servico::find($id);
-        $servico->nome = $request->get('title');
-        $servico->sobre = $request->get('body');
-
-        $servico->save();
-
-        return redirect('/servico')->with('Servico Atualizado com Sucesso.');
+        //
     }
 
     /**
@@ -113,8 +79,6 @@ class ServicoController extends Controller
      */
     public function destroy($id)
     {
-        $servico = Servico::find($id);
-        $servico->delete();
-        return redirect('/servico')->with('Servico Apagado com Sucesso.');
+        //
     }
 }

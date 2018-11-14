@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function servico()
+    {
+        return $this->hasMany(Sevico::class);
+    }
 }

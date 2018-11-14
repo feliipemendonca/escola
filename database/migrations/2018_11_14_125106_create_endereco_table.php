@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbEnderecoTable extends Migration
+class CreateEnderecoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTbEnderecoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_endereco', function (Blueprint $table) {
+        Schema::create('endereco', function (Blueprint $table) {
             $table->increments('idtb_endereco');
             $table->string('endereco', 50);
             $table->string('bairro', 50);
@@ -31,6 +31,6 @@ class CreateTbEnderecoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_endereco');
+        Schema::dropIfExists('endereco');
     }
 }

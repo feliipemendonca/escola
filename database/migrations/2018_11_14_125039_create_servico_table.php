@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbSexoTable extends Migration
+class CreateServicoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateTbSexoTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_sexo', function (Blueprint $table) {
-            $table->increments('idtb_sexo');
-            $table->string('sexo');
+        Schema::create('servicos', function (Blueprint $table) {
+            $table->increments('idtb_servico');
+            $table->string('nome', 45)->unique();
+            $table->string('sobre', 45);
+            $table->string('img')->unique();
+            $table->timestamps();
+
         });
     }
 
@@ -26,6 +30,6 @@ class CreateTbSexoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_sexo');
+        Schema::dropIfExists('servico');
     }
 }

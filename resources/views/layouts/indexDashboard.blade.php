@@ -11,6 +11,7 @@
 
 	<!-- Scripts -->
 	<script src="{{ asset('js/app.js') }}" defer></script>
+	<script src="{{ asset('js/solid.js') }}" defer></script>
 
 	<!-- Fonts -->
 	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -19,6 +20,8 @@
 	<!-- Styles -->
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/solid.css') }}" rel="stylesheet">
+	<link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet">
 </head>
 <body> 
 	@auth

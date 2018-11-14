@@ -18,8 +18,9 @@ class CursoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('curso');
+    {      
+        $servico = Servico::all();
+        return view('admin.curso', compact('servico'));
     }
 
     /**
@@ -29,7 +30,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        return view('curso.create');
+        return view('admin.curso.create');
     }
 
     /**
@@ -41,7 +42,7 @@ class CursoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nome'      => 'required',
+            'curso'      => 'required',
             'sobre'     => 'required',
             'alvo'      => 'required',
             'carga'     => 'required',
@@ -50,7 +51,7 @@ class CursoController extends Controller
         ]);
 
         $curso = new Curso([
-            'nome'      => $request->get('nome'),
+            'nome'      => $request->get('curso'),
             'sobre'     => $request->get('sobre'),
             'alvo'      => $request->get('alvo'),
             'carga'     => $request->get('carga'),
@@ -59,7 +60,7 @@ class CursoController extends Controller
         ]);
 
         $curso->save();
-        return redirect('/curso')->with('Cadastro realizidado com Sucesso.');
+        return redirect('admin.curso')->with('Cadastro realizidado com Sucesso.');
 
     }
 

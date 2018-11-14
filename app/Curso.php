@@ -9,9 +9,9 @@ class Curso extends Model
 	protected $fillable = [
 		'nome',
 		'sobre',
-		'alvo'
-		'carga'
-		'mercado'
+		'alvo',
+		'carga',
+		'mercado',
 		'valor'
-	]
+	];
 }

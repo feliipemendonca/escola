@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbEscolTable extends Migration
+class CreateEscolTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTbEscolTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_escol', function (Blueprint $table) {
+        Schema::create('escol', function (Blueprint $table) {
             $table->increments('idtb_escol');
             $table->string('escola');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateTbEscolTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_escol');
+        Schema::dropIfExists('escol');
     }
 }

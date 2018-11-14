@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbProfessorTable extends Migration
+class CreateProfessorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateTbProfessorTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_professor', function (Blueprint $table) {
+        Schema::create('professor', function (Blueprint $table) {
             $table->increments('idtb_professor');
             $table->string('nome', 45);
             $table->string('rg', 11);
@@ -21,12 +21,11 @@ class CreateTbProfessorTable extends Migration
             $table->string('formacao', 45);
             $table->string('instituicao', 45);
             $table->date('ano');
-            $table->string('bio', 500);
+            $table->string('bio');
             $table->string('img')->unique();
-            $table->integer('tb_endereco_idtb_endereco')->unsigned();
+            $table->integer('idtb_endereco')->unsigned();
             $table->timestamps();
-
-            $table->foreign('tb_endereco_idtb_endereco')->references('idtb_endereco')->on('tb_endereco');
+            $table->foreign('idtb_endereco')->references('idtb_endereco')->on('endereco');
         });
     }
 
@@ -37,6 +36,6 @@ class CreateTbProfessorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_professor');
+        Schema::dropIfExists('professor');
     }
 }
