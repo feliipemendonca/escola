@@ -13,7 +13,7 @@ class CreateAlunoTable extends Migration
      */
     public function up()
     {
-        Schema::create('aluno', function (Blueprint $table) {
+        Schema::create('alunos', function (Blueprint $table) {
             $table->increments('idtb_aluno');
             $table->string('nome');
             $table->string('cpf')->unique();
@@ -28,9 +28,9 @@ class CreateAlunoTable extends Migration
             $table->integer('idtb_contato')->unsigned();
             $table->integer('idtb_users')->unsigned();
             $table->timestamps();
-            $table->foreign('idtb_curso')->references('idtb_curso')->on('curso');
-            $table->foreign('idtb_sexo')->references('idtb_sexo')->on('sexo');
-            $table->foreign('idtb_escol')->references('idtb_escol')->on('escol');
+            $table->foreign('idtb_curso')->references('idtb_curso')->on('cursos');
+            $table->foreign('idtb_sexo')->references('idtb_sexo')->on('sexos');
+            $table->foreign('idtb_escol')->references('idtb_escol')->on('escols');
             $table->foreign('idtb_users')->references('id')->on('users');
         });
     }

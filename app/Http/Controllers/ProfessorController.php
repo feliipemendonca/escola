@@ -13,7 +13,8 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        //
+        $professors = Professor::all();
+        return view('admin.professor', ['profesors' => $professors]);
     }
 
     /**
@@ -23,7 +24,7 @@ class ProfessorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.professor.create');
     }
 
     /**
@@ -34,7 +35,18 @@ class ProfessorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nome'  => 'required',
+            'cpf'   => 'required|integer',
+            'rg'    => 'required|integer',
+            'formacao' => 'required',
+            'instituicao'   => 'required',
+            'ano'   => 'required|date',
+        ]);
+
+        $professor = new Professor([
+            ''
+        ]);
     }
 
     /**

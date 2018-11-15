@@ -13,7 +13,7 @@ class CreateImgServicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('img_servico', function (Blueprint $table) {
+        Schema::create('img_servicos', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });

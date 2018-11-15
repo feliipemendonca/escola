@@ -19,8 +19,8 @@ class CursoController extends Controller
      */
     public function index()
     {      
-        $servico = Servico::all();
-        return view('admin.curso', compact('servico'));
+        $cursos = Curso::all();
+        return view('admin.curso', ['cursos' =>$cursos]);
     }
 
     /**
@@ -60,7 +60,7 @@ class CursoController extends Controller
         ]);
 
         $curso->save();
-        return redirect('admin.curso')->with('Cadastro realizidado com Sucesso.');
+        return redirect('/curso')->with('Cadastro realizidado com Sucesso.');
 
     }
 

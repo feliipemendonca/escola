@@ -21,15 +21,23 @@
 				<th>ID</th>
 				<th>Nome</th>
 				<th>Valor</th>
+				<th>Carga Horária</th>
+				<th>Cadastro</th>
+				<th>Atualizado</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
+			@foreach ($cursos as $curso)
 			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>{{ $curso->idtb_cursoq }}</td>
+				<td>{{ $curso->nome }}</td>
+				<td>{{ $curso->valor }}</td>
+				<td>{{ $curso->carga }}</td>
+				<td>{{ $curso->created_at }}</td>
+				<td>{{ $curso->updated_at }}</td>
 			</tr>
+			@endforeach
 		</tbody>
 	</table>
 </div>
@@ -58,7 +66,7 @@
 				<div class="modal-body">
 					<div class="container">
 						<div class="row">
-							@csrf
+							@csrf	
 							<div class="col-sm-12 col-md-12">
 								<label for="Nome">Nome<em>*</em></label>
 								<input type="text" class="form-control" name="curso" required>							

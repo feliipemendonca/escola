@@ -13,18 +13,18 @@ class CreateCursoTable extends Migration
      */
     public function up()
     {
-        Schema::create('curso', function (Blueprint $table) {
-           $table->increments('idtb_curso');
-           $table->string('nome');
-           $table->text('sobre');
-           $table->string('alvo');
-           $table->text('carga');
-           $table->string('mercado');
-           $table->float('valor');
-           $table->boolean('ativa');
-           $table->string('img')->unique();
-           $table->timestamps();
-       });
+      Schema::create('cursos', function (Blueprint $table) {
+        $table->increments('idtb_curso');
+        $table->string('nome');
+        $table->text('sobre');
+        $table->string('alvo');
+        $table->text('carga');
+        $table->string('mercado');
+        $table->float('valor');
+        $table->integer('ativa');
+        $table->string('img')->unique();
+        $table->timestamps();
+      });
     }
 
     /**
@@ -34,6 +34,6 @@ class CreateCursoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('curso');
+      Schema::dropIfExists('curso');
     }
-}
+  }

@@ -13,7 +13,7 @@ class CreateEscolTable extends Migration
      */
     public function up()
     {
-        Schema::create('escol', function (Blueprint $table) {
+        Schema::create('escols', function (Blueprint $table) {
             $table->increments('idtb_escol');
             $table->string('escola');
             $table->timestamps();
