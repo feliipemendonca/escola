@@ -14,7 +14,7 @@ class CreateAlunoTable extends Migration
     public function up()
     {
         Schema::create('alunos', function (Blueprint $table) {
-            $table->increments('idtb_aluno');
+            $table->increments('id');
             $table->string('nome');
             $table->string('cpf')->unique();
             $table->string('rg')->unique();
@@ -28,9 +28,9 @@ class CreateAlunoTable extends Migration
             $table->integer('idtb_contato')->unsigned();
             $table->integer('idtb_users')->unsigned();
             $table->timestamps();
-            $table->foreign('idtb_curso')->references('idtb_curso')->on('cursos');
-            $table->foreign('idtb_sexo')->references('idtb_sexo')->on('sexos');
-            $table->foreign('idtb_escol')->references('idtb_escol')->on('escols');
+            $table->foreign('idtb_curso')->references('id')->on('cursos');
+            $table->foreign('idtb_sexo')->references('id')->on('sexos');
+            $table->foreign('idtb_escol')->references('id')->on('escols');
             $table->foreign('idtb_users')->references('id')->on('users');
         });
     }

@@ -14,7 +14,7 @@ class CreateTurmaTable extends Migration
     public function up()
     {
         Schema::create('turmas', function (Blueprint $table) {
-            $table->increments('idtb_turma');
+            $table->increments('id');
             $table->integer('vaga');
             $table->string('dia');
             $table->string('hora');
@@ -22,9 +22,9 @@ class CreateTurmaTable extends Migration
             $table->integer('idtb_curso')->unsigned();
             $table->integer('idtb_professor')->unsigned();
             $table->timestamps();
-            $table->foreign('idtb_endereco')->references('idtb_endereco')->on('enderecos');
-            $table->foreign('idtb_curso')->references('idtb_curso')->on('cursos');
-            $table->foreign('idtb_professor')->references('idtb_professor')->on('professors');
+            $table->foreign('idtb_endereco')->references('id')->on('enderecos');
+            $table->foreign('idtb_curso')->references('id')->on('cursos');
+            $table->foreign('idtb_professor')->references('id')->on('professors');
         });
     }
 

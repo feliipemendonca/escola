@@ -49,14 +49,21 @@ class ServicoController extends Controller
         $request->validate([
             'title' => 'required',
             'body'  => 'required',
+            'img'   => 'required|image|mimes:jpeg, png, jpg'
         ]);
+
+        $imageName = time().'.'.request()->img->getClientOriginalExtension();
+
+        request()->img->move(public_path('upload'), $imageName);
 
         $servico = new Servico ([
             'nome' => $request->get('title'),
-            'sobre'=> $request->get('body')
+            'sobre'=> $request->get('body'),
+            'img'  => $imageName
         ]);
 
         $servico->save();
+
         return redirect('/servico')->with('Serviço cadastrado com Sucesso');
     }
 
@@ -116,5 +123,6 @@ class ServicoController extends Controller
         $servico = Servico::find($id);
         $servico->delete();
         return redirect('/servico')->with('Servico Apagado com Sucesso.');
+        
     }
 }

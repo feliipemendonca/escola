@@ -14,7 +14,7 @@ class CreateSexoTable extends Migration
     public function up()
     {
         Schema::create('sexos', function (Blueprint $table) {
-            $table->increments('idtb_sexo');
+            $table->increments('id');
             $table->string('sexo');
         });
     }

@@ -24,6 +24,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
+				<th>Cadastro</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
@@ -32,6 +33,7 @@
 			<tr>
 				<td>{{ $servico->id }}</td>
 				<td>{{ $servico->nome }}</td>
+				<td>{{ $servico->created_at }}</td>
 				<td class="options">
 					<ul>
 						<li><a href="" data-toggle="modal" data-target="#update{{ $servico->id }}">Editar</a></li>
@@ -112,14 +114,18 @@
 				</ul>
 			</div><br />
 			@endif
-			<form action="" method="post" accept-charset="utf-8">
+			<form action="" method="post" accept-charset="utf-8" enctype="multipart/form-data">
 				<div class="modal-body">
 					<div class="container">
 						<div class="row">
 							@csrf
-							<div class="col-sm-12 col-md-12">
+							<div class="col-sm-12 col-md-6">
 								<label for="Nome">Nome<em>*</em></label>
 								<input type="text" class="form-control" name="title" required>							
+							</div>
+							<div class="col-sm0-12 col-md-6">
+								<label for="img">Imagem<em>*</em></label>
+								<input type="file" name="img" required>
 							</div>
 							<div class="col-sm-12 col-md-12">
 								<label for="publico">Descrição<em>*</em></label>

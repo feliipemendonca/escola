@@ -14,7 +14,7 @@ class CreateServicoTable extends Migration
     public function up()
     {
         Schema::create('servicos', function (Blueprint $table) {
-            $table->increments('idtb_servico');
+            $table->increments('id');
             $table->string('nome', 45)->unique();
             $table->string('sobre', 45);
             $table->string('img')->unique();

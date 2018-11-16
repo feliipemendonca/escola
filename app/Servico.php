@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Servico extends Model
 {
-	protected $fillable = ['idtb_servico','nome','sobre'];
+	protected $fillable = ['id','nome','sobre','img'];
 
 	public function users()
 	{

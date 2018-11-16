@@ -14,7 +14,7 @@ class CreateProfessorTable extends Migration
     public function up()
     {
         Schema::create('professors', function (Blueprint $table) {
-            $table->increments('idtb_professor');
+            $table->increments('id');
             $table->string('nome', 45);
             $table->string('rg', 11);
             $table->string('cpf', 15);
@@ -25,7 +25,7 @@ class CreateProfessorTable extends Migration
             $table->string('img')->unique();
             $table->integer('idtb_endereco')->unsigned();
             $table->timestamps();
-            $table->foreign('idtb_endereco')->references('idtb_endereco')->on('enderecos');
+            $table->foreign('idtb_endereco')->references('id')->on('enderecos');
         });
     }
 

@@ -48,7 +48,12 @@ class CursoController extends Controller
             'carga'     => 'required',
             'mercado'   =>'required',
             'valor'     =>'required|integer',
+            'img'   => 'required|image|mimes:jpeg, png, jpg'
         ]);
+
+        $imageName = time().'.'.request()->img->getClientOriginalExtension();
+
+        request()->img->move(public_path('upload'), $imageName);
 
         $curso = new Curso([
             'nome'      => $request->get('curso'),
@@ -56,7 +61,8 @@ class CursoController extends Controller
             'alvo'      => $request->get('alvo'),
             'carga'     => $request->get('carga'),
             'mercado'   => $request->get('mercado'),
-            'valor'     => $request->get('valor')
+            'valor'     => $request->get('valor'),
+            'img'       => $imageName
         ]);
 
         $curso->save();
@@ -83,7 +89,7 @@ class CursoController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.curso.edit');
     }
 
     /**
@@ -95,7 +101,26 @@ class CursoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([       
+            'curso'      => 'required',
+            'sobre'     => 'required',
+            'alvo'      => 'required',
+            'carga'     => 'required',
+            'mercado'   =>'required',
+            'valor'     =>'required|integer',
+        ]);
+
+        $curso = Curso::find($id);
+        $curso->nome = $request->get('curso');
+        $curso->sobre = $request->get('sobre');
+        $curso->alvo = $request->get('alvo');
+        $curso->carga = $request->get('carga');
+        $curso->mercado = $request->get('mercado');
+        $curso->valor = $request->get('valor');
+
+        $curso->save();
+
+        return redirect('/curso')->with('Curso Atualizado com Sucesso.');
     }
 
     /**
@@ -106,6 +131,9 @@ class CursoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $curso = Curso::find($id);
+        $curso->delete();
+
+        return redirect('/curso')->with('Curso Apagado com Sucesso');
     }
 }
