@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAlunoTable extends Migration
+class CreateAlunosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -22,16 +22,13 @@ class CreateAlunoTable extends Migration
             $table->string('profissao');
             $table->string('tipo_sangue');
             $table->date('data');
-            $table->integer('idtb_curso')->unsigned();
-            $table->integer('idtb_sexo')->unsigned();
-            $table->integer('idtb_escol')->unsigned();
-            $table->integer('idtb_contato')->unsigned();
-            $table->integer('idtb_users')->unsigned();
+            $table->integer('idtb_cursos')->unsigned();
+            $table->integer('idtb_sexos')->unsigned();
+            $table->integer('idtb_escols')->unsigned();
+            $table->foreign('idtb_cursos')->references('id')->on('cursos');
+            $table->foreign('idtb_sexos')->references('id')->on('sexos');
+            $table->foreign('idtb_escols')->references('id')->on('escols');
             $table->timestamps();
-            $table->foreign('idtb_curso')->references('id')->on('cursos');
-            $table->foreign('idtb_sexo')->references('id')->on('sexos');
-            $table->foreign('idtb_escol')->references('id')->on('escols');
-            $table->foreign('idtb_users')->references('id')->on('users');
         });
     }
 
@@ -42,6 +39,6 @@ class CreateAlunoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aluno');
+        Schema::dropIfExists('slunos');
     }
 }

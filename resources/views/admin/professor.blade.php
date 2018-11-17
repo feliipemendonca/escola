@@ -2,18 +2,16 @@
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 title">
-	<h1 class="h2">Cursos</h1>
+	<h1 class="h2">Professores</h1>
 	<div class="btn-toolbar mb-2 mb-md-0">
 		<div class="btn-group mr-2">
 			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
 				<span data-feather="calendar"></span>
-				Cadastrar Curso
+				Cadastrar Professor
 			</button>
 		</div>
 	</div>
 </div>
-
-
 <div class="col-sm-12 col-md-12">
 	@if ($errors->any())
 	<div class="alert alert-danger">
@@ -29,27 +27,27 @@
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
-				<th>Valor</th>
-				<th>Carga Horária</th>
+				<th>RG</th>
+				<th>CPF</th>
 				<th>Cadastro</th>
 				<th>Atualizado</th>
 				<th>Ações</th>
 			</tr>
 		</thead>
 		<tbody>
-			@foreach ($cursos as $curso)
+			@foreach ($professors as $prof)
 			<tr>
-				<td>{{ $curso->id }}</td>
-				<td>{{ $curso->nome }}</td>
-				<td>{{ $curso->valor }}</td>
-				<td>{{ $curso->carga }}</td>
-				<td>{{ $curso->created_at }}</td>
-				<td>{{ $curso->updated_at }}</td>
+				<td>{{ $prof->id }}</td>
+				<td>{{ $prof->nome }}</td>
+				<td>{{ $prof->rg }}</td>
+				<td>{{ $prof->cpf }}</td>
+				<td>{{ $prof->created_at }}</td>
+				<td>{{ $prof->updated_at }}</td>
 				<td class="options">
 					<ul>
-						<li><a href="" data-toggle="modal" data-target="#update{{ $curso->id }}">Editar</a></li>
+						<li><a href="" data-toggle="modal" data-target="#update{{ $prof->id }}">Editar</a></li>
 						<li>
-							<form action="{{ route('curso.destroy', $curso->id)}}" method="post">
+							<form action="{{ route('prof.destroy', $curso->id)}}" method="post">
 								@csrf
 								@method('DELETE')
 								<button type="submit">Apagar</button>
@@ -58,7 +56,7 @@
 					</ul>
 				</td>
 			</tr>
-			<div class="modal fade" id="update{{ $curso->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal fade" id="update{{ $prof->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -67,17 +65,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						@if ($errors->any())
-						<div class="alert alert-danger">
-							<ul>
-								@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div><br />
-						@endif
-
-						<form action="{{ route('curso.update', $curso->id) }}" method="post" accept-charset="utf-8">
+						<form action="{{ route('professor.update', $prof->id) }}" method="post" accept-charset="utf-8">
 							<div class="modal-body">
 								<div class="container">
 									<div class="row">
@@ -85,27 +73,23 @@
 										@csrf
 										<div class="col-sm-12 col-md-12">
 											<label for="Nome">Nome<em>*</em></label>
-											<input type="text" class="form-control" name="curso" value="{{ $curso->nome }}" required>						
+											<input type="text" class="form-control" name="nome" value="{{ $prof->nome }}" required>
 										</div>
 										<div class="col-sm-12 col-md-6">
-											<label for="carga">Carga Horária<em>*</em></label>
-											<input type="text" class="form-control" name="carga" value="{{ $curso->carga }}" required>						
+											<label for="carga">RG<em>*</em></label>
+											<input type="text" class="form-control" name="rg" value="{{ $prof->rg }}" required>
 										</div>
 										<div class="col-sm-12 col-md-6">
-											<label for="Nome">Valor<em>*</em></label>
-											<input type="text" class="form-control" name="valor" value="{{ $curso->valor }}" required>						
+											<label for="Nome">CPF<em>*</em></label>
+											<input type="text" class="form-control" name="cep" value="{{ $prof->cpf }}" required>	
 										</div>
-										<div class="col-sm-12 col-md-12">
-											<label for="publico">Público Alvo<em>*</em></label>
-											<textarea class="form-control" rows="2" name="alvo" required>{{ $curso->alvo }}</textarea>		
+										<div class="col-sm-12 col-md-6">
+											<label for="Nome">E-mail<em>*</em></label>
+											<input type="email" class="form-control" name="email" required>	
 										</div>
-										<div class="col-sm-12 col-md-12">
-											<label for="mercado">Mercado<em>*</em></label>
-											<textarea class="form-control" rows="3" name="mercado" required>{{ $curso->mercado  }}</textarea>		
-										</div>
-										<div class="col-sm-12 col-md-12">
-											<label for="publico">Sobre o Curso<em>*</em></label>
-											<textarea class="form-control" rows="3" name="sobre" required>{{ $curso->sobre }}</textarea>
+										<div class="col-sm-12 col-md-6">
+											<label for="Nome">Senha<em>*</em></label>
+											<input type="text" class="form-control" name="senha" required>	
 										</div>
 									</div>
 								</div>
@@ -139,33 +123,25 @@
 					<div class="container">
 						<div class="row">
 							@csrf	
-							<div class="col-sm-12 col-md-6">
+							<div class="col-sm-12 col-md-12">
 								<label for="Nome">Nome<em>*</em></label>
-								<input type="text" class="form-control" name="curso" required>							
+								<input type="text" class="form-control" name="nome" required>							
 							</div>
 							<div class="col-sm-12 col-md-6">
-								<label for="img">Imagem<em>*</em></label>
-								<input type="file" name="img" required>
+								<label for="Nome">CPF<em>*</em></label>
+								<input type="text" class="form-control" name="cpf" required>							
 							</div>
 							<div class="col-sm-12 col-md-6">
-								<label for="carga">Carga Horária<em>*</em></label>
-								<input type="text" class="form-control" name="carga" required>							
+								<label for="Nome">RG<em>*</em></label>
+								<input type="text" class="form-control" name="rg" required>							
 							</div>
 							<div class="col-sm-12 col-md-6">
-								<label for="Nome">Valor<em>*</em></label>
-								<input type="text" class="form-control" name="valor" required>							
+								<label for="Nome">E-mail<em>*</em></label>
+								<input type="text" class="form-control" name="email" required>							
 							</div>
-							<div class="col-sm-12 col-md-12">
-								<label for="publico">Público Alvo<em>*</em></label>
-								<textarea class="form-control" rows="2" name="alvo" required></textarea>							
-							</div>
-							<div class="col-sm-12 col-md-12">
-								<label for="mercado">Mercado<em>*</em></label>
-								<textarea class="form-control" rows="3" name="mercado" required></textarea>							
-							</div>
-							<div class="col-sm-12 col-md-12">
-								<label for="publico">Sobre o Curso<em>*</em></label>
-								<textarea class="form-control" rows="3" name="sobre" required></textarea>							
+							<div class="col-sm-12 col-md-6">
+								<label for="Nome">Senha<em>*</em></label>
+								<input type="text" class="form-control" name="senha" required>							
 							</div>
 						</div>
 					</div>

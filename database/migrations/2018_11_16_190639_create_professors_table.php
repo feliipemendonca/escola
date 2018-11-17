@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfessorTable extends Migration
+class CreateProfessorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,9 +23,15 @@ class CreateProfessorTable extends Migration
             $table->date('ano');
             $table->string('bio');
             $table->string('img')->unique();
-            $table->integer('idtb_endereco')->unsigned();
+            $table->string('endereco', 50);
+            $table->string('bairro', 50);
+            $table->string('cidade', 50);
+            $table->string('numero', 50);
+            $table->string('estado', 50);
             $table->timestamps();
-            $table->foreign('idtb_endereco')->references('id')->on('enderecos');
+            $table->integer('idtb_users')->unsigned();
+            
+            $table->foreign('id')->references('id')->on('users');
         });
     }
 
@@ -36,6 +42,6 @@ class CreateProfessorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('professor');
+        Schema::dropIfExists('professors');
     }
 }

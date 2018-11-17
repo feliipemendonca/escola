@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEnderecoTable extends Migration
+class CreateSexosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateEnderecoTable extends Migration
      */
     public function up()
     {
-        Schema::create('enderecos', function (Blueprint $table) {
+        Schema::create('sexos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('endereco', 50);
-            $table->string('bairro', 50);
-            $table->string('cidade', 50);
-            $table->string('numero', 50);
-            $table->string('estado', 50);
+            $table->string('sexo');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateEnderecoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('endereco');
+        Schema::dropIfExists('sexos');
     }
 }

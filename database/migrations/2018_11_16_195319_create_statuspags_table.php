@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateServicoTable extends Migration
+class CreateStatuspagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateServicoTable extends Migration
      */
     public function up()
     {
-        Schema::create('servicos', function (Blueprint $table) {
+        Schema::create('statuspags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 45)->unique();
-            $table->string('sobre', 45);
-            $table->string('img')->unique();
+            $table->string('status');
+            $table->string('descri');
             $table->timestamps();
-
         });
     }
 
@@ -30,6 +28,6 @@ class CreateServicoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servico');
+        Schema::dropIfExists('statuspags');
     }
 }

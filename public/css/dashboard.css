@@ -99,6 +99,10 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
+.title{
+  padding: .9em;
+  padding-top: 2em !important;
+}
 .options ul{
   list-style: none;
   display: -webkit-inline-box;
@@ -108,4 +112,13 @@ body {
 }
 .options ul li{
   margin-right: 0.9em;
+}
+.options ul li form button[type='submit']{
+  background: none;
+  border: none;
+  color: #4896dd;
+  cursor: pointer;
+}
+.options ul li form button[type='submit']:hover{
+  text-decoration: underline;
 }

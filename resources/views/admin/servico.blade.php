@@ -1,7 +1,7 @@
 @extends('layouts.indexDashboard')
 
 @section('content')
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 title">
 	<h1 class="h2">Serviços</h1>
 	<div class="btn-toolbar mb-2 mb-md-0">
 		<div class="btn-group mr-2">
@@ -20,7 +20,7 @@
 @endif
 <div class="col-sm-12 col-md-12">
 	<table class="table">
-		<thead class="thead-dark"> 
+		<thead class="thead"> 
 			<tr>
 				<th>ID</th>
 				<th>Nome</th>
@@ -47,8 +47,8 @@
 					</ul>
 				</td>
 			</tr>
-			<div class="modal fade" id="update{{ $servico->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog" role="document">
+			<div class="modal fade " id="update{{ $servico->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="exampleModalLabel">Cadastrar Serviço</h5>
