@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Professor;
-use App\Users;
 
-class ProfessorController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class ProfessorController extends Controller
      */
     public function index()
     {
-        $professors = Professor::all();
-        return view('admin.professor', ['professors' => $professors]);
+        return view('admin.professor');
     }
 
     /**
@@ -26,7 +23,7 @@ class ProfessorController extends Controller
      */
     public function create()
     {
-        return view('admin.professor.create');
+        
     }
 
     /**
@@ -37,34 +34,7 @@ class ProfessorController extends Controller
      */
     public function store(Request $request)
     {
-/*
-        $request->validate([
-            'nome'  => 'required',
-            'cpf'   => 'required|integer',
-            'rg'    => 'required|integer',
-            'email' => 'required',
-            'senha' =>  'required'
-        ]);
-
-        $users = new Users([
-            'name'  => $request->get('nome'),
-            'email' => $request->get('email'),
-            'password' => $request->get('senha')
-        ]);
-
-        $users->save();
-
-        /*
-        $prof = new Professor([
-            'nome'  => $request->get('nome'),
-            'cpf'   => $request->get('cpf'),
-            'rg'    => $request->get('rg'),
-            'idtb_users' => $users->id
-        ]);
-
-        $professors->save(); */
-
-        return redirect('/professor')->with('Professor Cadastrado com sucesso.');
+        //
     }
 
     /**

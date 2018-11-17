@@ -47,7 +47,7 @@ class CursoController extends Controller
             'alvo'      => 'required',
             'carga'     => 'required',
             'mercado'   =>'required',
-            'valor'     =>'required|integer',
+            'valor'     =>'required|float',
             'img'   => 'required|image|mimes:jpeg, png, jpg'
         ]);
 

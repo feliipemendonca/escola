@@ -127,6 +127,7 @@
 								<label for="Nome">Nome<em>*</em></label>
 								<input type="text" class="form-control" name="nome" required>							
 							</div>
+							<!--
 							<div class="col-sm-12 col-md-6">
 								<label for="Nome">CPF<em>*</em></label>
 								<input type="text" class="form-control" name="cpf" required>							
@@ -135,23 +136,24 @@
 								<label for="Nome">RG<em>*</em></label>
 								<input type="text" class="form-control" name="rg" required>							
 							</div>
-							<div class="col-sm-12 col-md-6">
-								<label for="Nome">E-mail<em>*</em></label>
-								<input type="text" class="form-control" name="email" required>							
-							</div>
-							<div class="col-sm-12 col-md-6">
-								<label for="Nome">Senha<em>*</em></label>
-								<input type="text" class="form-control" name="senha" required>							
-							</div>
+						-->
+						<div class="col-sm-12 col-md-6">
+							<label for="email">E-mail<em>*</em></label>
+							<input type="email" class="form-control" name="email" required>							
+						</div>
+						<div class="col-sm-12 col-md-6">
+							<label for="senha">Senha<em>*</em></label>
+							<input type="password" class="form-control" name="senha" required>							
 						</div>
 					</div>
 				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-					<button type="submit" class="btn btn-outline-secondary">Cadastrar</button>
-				</div>
-			</form>
-		</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+				<button type="submit" class="btn btn-outline-secondary">Cadastrar</button>
+			</div>
+		</form>
 	</div>
+</div>
 </div>
 @endsection
