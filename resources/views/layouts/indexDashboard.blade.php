@@ -56,25 +56,25 @@
 				<div class="sidebar-sticky">
 					<ul class="nav flex-column">
 						<li class="nav-item">
-							<a class="nav-link" href="/home">
+							<a class="nav-link" href="/admin">
 								<span data-feather="home"></span>
 								Inicio<span class="sr-only">(current)</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/contato">
+							<a class="nav-link" href="/admin/contato">
 								<span data-feather="file"></span>
 								Contatos
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/servico">
+							<a class="nav-link" href="/admin/servico">
 								<span data-feather="shopping-cart"></span>
 								Serviços
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/solicitacao">
+							<a class="nav-link" href="/admin/solicitacao">
 								<span data-feather="users"></span>
 								Solicitações de Serviços
 							</a>
@@ -89,37 +89,37 @@
 					</h6>
 					<ul class="nav flex-column mb-2">
 						<li class="nav-item">
-							<a class="nav-link" href="/curso">
+							<a class="nav-link" href="/admin/curso">
 								<span data-feather="file-text"></span>
 								Cursos
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/professor">
+							<a class="nav-link" href="/admin/professor">
 								<span data-feather="file-text"></span>
 								Professores
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/turma/aberta">
+							<a class="nav-link" href="/admin/turma/aberta">
 								<span data-feather="file-text"></span>
 								Turmas Abertas
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/turma/fechada">
+							<a class="nav-link" href="/admin/turma/fechada">
 								<span data-feather="file-text"></span>
 								Turmas Fechadas
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/aluno/matriculado">
+							<a class="nav-link" href="/admin/aluno/matriculado">
 								<span data-feather="file-text"></span>
 								Alunos Matriculados
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/aluno/pre_matriculado">
+							<a class="nav-link" href="/admin/aluno/pre_matriculado">
 								<span data-feather="file-text"></span>
 								Alunos Pré-Matriculados
 							</a>

@@ -12,18 +12,12 @@
 		</div>
 	</div>
 </div>
-
-
 <div class="col-sm-12 col-md-12">
-	@if ($errors->any())
-	<div class="alert alert-danger">
-		<ul>
-			@foreach ($errors->all() as $error)
-			<li>{{ $error }}</li>
-			@endforeach
-		</ul>
-	</div><br />
-	@endif
+
+
+</div>
+<div class="col-sm-12 col-md-12">
+	
 	<table class="table">
 		<thead class="table"> 
 			<tr>
@@ -67,16 +61,6 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						@if ($errors->any())
-						<div class="alert alert-danger">
-							<ul>
-								@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div><br />
-						@endif
-
 						<form action="{{ route('curso.update', $curso->id) }}" method="post" accept-charset="utf-8">
 							<div class="modal-body">
 								<div class="container">

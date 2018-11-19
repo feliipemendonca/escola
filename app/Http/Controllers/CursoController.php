@@ -47,7 +47,7 @@ class CursoController extends Controller
             'alvo'      => 'required',
             'carga'     => 'required',
             'mercado'   =>'required',
-            'valor'     =>'required|float',
+            'valor'     =>'required',
             'img'   => 'required|image|mimes:jpeg, png, jpg'
         ]);
 
@@ -66,7 +66,7 @@ class CursoController extends Controller
         ]);
 
         $curso->save();
-        return redirect('/curso')->with('Cadastro realizidado com Sucesso.');
+        return redirect('/admin/curso')->with('success', 'Cadastro realizidado com Sucesso.');
 
     }
 

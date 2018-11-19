@@ -24,7 +24,7 @@ class ServicoController extends Controller
     public function index()
     {   
         $servicos = Servico::paginate(15);
-        return view('admin.servico', ['servicos' => $servicos]);
+        return view('servico', ['servicos' => $servicos]);
     }
 
     /**

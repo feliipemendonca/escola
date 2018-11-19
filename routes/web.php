@@ -16,11 +16,15 @@ Route::get('/', function () {
 });;
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/contato', 'ContatoController@index')->name('contato');
-Route::resource('/curso', 'CursoController');
-Route::resource('/servico', 'ServicoController');
-Route::resource('/professor', 'ProfessorController');
+
+Route::prefix('admin')->group(function (){
+	Route::get('/', 'HomeController@index')->name('home');
+	Route::get('/contato', 'ContatoController@index')->name('contato');
+	Route::resource('/curso', 'CursoController');
+	Route::resource('/servico', 'ServicoController');
+	Route::resource('/professor', 'ProfessorController');
+});
+
 
 
 
